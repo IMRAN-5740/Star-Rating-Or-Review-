@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebApplication.StarRating.ViewModel.ArticleViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+    int serialNo = 1;
+}
+
+<br />
+<br />
+<h4>Acticle Index Table</h4>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Serial No</th>
+            <th>Article Name</th>
+            <th>Acticle Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@(serialNo++)</td>
+                <td>@data.ArticleName</td>
+                <td>@data.ArticleDescription</td>
+                <td>@Html.ActionLink("Add/ViewComment", "ShowComment", new {articleId=@data.ArticleId})</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

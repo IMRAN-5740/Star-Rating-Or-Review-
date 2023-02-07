@@ -1,0 +1,27 @@
+﻿@model WebApplication.StarRating.ViewModel.CommentViewModel
+
+<table style="width:100%; border:1px solid black">
+   <tr>
+       <td>  @Model.CommmentedOn.ToString("dd-mm-yyyy HH:MM")</td>
+     
+   </tr>
+   <tr>
+       <td> @Model.CommentDescription</td>
+      
+   </tr>
+   <tr>
+       <td>
+           @for (int i = 1; i <= @Model.Rating; i++)
+           {
+               <span class="glyphicon glyphicon-star"></span>
+           }
+           @for (int i = @Model.Rating+1; i <= 5; i++)
+           {
+               <span class="glyphicon glyphicon-star-empty"></span>
+           }
+       </td>
+      
+   </tr>
+
+
+</table>
